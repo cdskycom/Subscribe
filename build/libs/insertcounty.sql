@@ -16,3 +16,5 @@ INSERT INTO `county` (`id`,`name`,`leader_id`,`type`) VALUES (9,'宜宾县',1,NU
 INSERT INTO `county` (`id`,`name`,`leader_id`,`type`) VALUES (10,'翠屏区',1,NULL);
 INSERT INTO `county` (`id`,`name`,`leader_id`,`type`) VALUES (11,'临港区',1,NULL);
 INSERT INTO `county` (`id`,`name`,`leader_id`,`type`) VALUES (12,'南溪区',1,NULL);
+
+
