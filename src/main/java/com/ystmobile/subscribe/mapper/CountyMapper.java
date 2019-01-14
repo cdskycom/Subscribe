@@ -12,4 +12,5 @@ import com.ystmobile.subscribe.model.County;
 public interface CountyMapper {
    
     List<County> findByLeaderid(@Param("leader_id")int leader_id);
+    List<County> findByCityName(@Param("cityname")String cityname);
 }

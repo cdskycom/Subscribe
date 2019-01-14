@@ -18,7 +18,6 @@
 				结束日期: <input  type="date" placeholder="结束日期..." v-model="enddate">
 				
 				<button class="uk-button uk-button-primary" v-on:click="getsubscribes">Go</button>
-				<input id="city" type="hidden" th:value="${cityname}"/>
 		</div>	
 		<div v-if="data != ''">	
 				<table class="uk-table uk-table-middle uk-table-small uk-table-striped uk-table-divider">
@@ -55,31 +54,19 @@
     			startdate:'',
     			enddate:'',
     			data:'',
-    			cityname:'',
-    			url:'/subscribe/findall?',
-    			urlbycity:'/subscribe/findallbycity?'
+    			url:'/subscribe/findall?'
     		},
     		methods:{
     			getsubscribes:function(){
     				that = this;
-    				if(this.cityname != ''){
-    					url = this.urlbycity + 'city=' + this.cityname + '&startdate=' + this.startdate + '&enddate=' + this.enddate;
-    				}else{
-    					url = this.url + 'leader_id=1' + '&startdate=' + this.startdate + '&enddate=' + this.enddate;			
-        				
-    				}
+    				url = this.url + 'leader_id=13' + '&startdate=' + this.startdate + '&enddate=' + this.enddate;			
     				axios.get(url).then(function(res){
     					that.data = res.data.data;
     				});
-    				
     			},
 
-    		},
-    		mounted:function(){
-    			this.cityname = document.getElementById("city").value;
     		}
     	});
-    	
 
     </script>
 

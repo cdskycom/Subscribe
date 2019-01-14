@@ -35,8 +35,13 @@ public class SubscribeRestController {
 	}
 	
 	@RequestMapping("/subscribe/findall")
-	public String findAll(String startdate,String enddate){
-		ResultData rd = subscribeService.findByDate(startdate, enddate);
+	public String findAll(int leader_id, String startdate,String enddate){
+		ResultData rd = subscribeService.findByDate(leader_id, startdate, enddate);
+		return json.toJson(rd);
+	}
+	@RequestMapping("/subscribe/findallbycity")
+	public String findAllByCity(String city, String startdate,String enddate){
+		ResultData rd = subscribeService.findByCityAndDate(city, startdate, enddate);
 		return json.toJson(rd);
 	}
 }

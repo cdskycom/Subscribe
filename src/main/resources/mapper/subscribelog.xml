@@ -8,9 +8,12 @@
     </select>
     
     <select id="findByDate" resultType="com.ystmobile.subscribe.model.Subscribelog">
-    	SELECT * FROM subscribelog where Date(createdate) between #{startdate} and #{enddate}
+    	SELECT * FROM subscribelog where county_id in (select id from county where leader_id=#{leader_id}) and Date(createdate) between #{startdate} and #{enddate} order by createdate desc
     </select>
     
+    <select id="findByCityAndDate" resultType="com.ystmobile.subscribe.model.Subscribelog">
+    	SELECT * FROM subscribelog where county_id in (select id from county where leader_id = (select id from county where type=#{cityname})) and Date(createdate) between #{startdate} and #{enddate} order by createdate desc
+    </select>
    
     
     <insert id="add" useGeneratedKeys="true" keyProperty="ID" parameterType="com.ystmobile.subscribe.model.Subscribelog">

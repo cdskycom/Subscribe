@@ -12,6 +12,6 @@ public interface SubscribeMapper {
 	Integer add(Subscribelog subscribelog);
     Integer delete(int id);
     Subscribelog findByPhone(String phone);
-    List<Subscribelog> findByDate(@Param("startdate")String startdate, @Param("enddate")String enddate);
-    
+    List<Subscribelog> findByDate(@Param("leader_id")int leader_id, @Param("startdate")String startdate, @Param("enddate")String enddate);
+    List<Subscribelog> findByCityAndDate(@Param("cityname")String cityname, @Param("startdate")String startdate, @Param("enddate")String enddate);
 }

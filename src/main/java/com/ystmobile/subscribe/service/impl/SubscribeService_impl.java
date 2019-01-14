@@ -62,9 +62,23 @@ public class SubscribeService_impl implements SubscribeService {
 		return rd;
 	}
 	@Override
-	public ResultData findByDate(String startdate, String enddate) {
+	public ResultData findByDate(int leader_id, String startdate, String enddate) {
 		ResultData rd = new ResultData();
-		List<Subscribelog> subscribelogs = subscribeMapper.findByDate(startdate, enddate);
+		List<Subscribelog> subscribelogs = subscribeMapper.findByDate(leader_id, startdate, enddate);
+		if(subscribelogs != null){
+			rd.setResult(ResultData.SUCCESS);
+			rd.setData(subscribelogs);
+		}else{
+			rd.setResult(ResultData.OTHER);
+			rd.setMessage(ResultData.OTHERDMESSAGE);
+		}
+
+		return rd;
+	}
+	@Override
+	public ResultData findByCityAndDate(String city, String startdate, String enddate) {
+		ResultData rd = new ResultData();
+		List<Subscribelog> subscribelogs = subscribeMapper.findByCityAndDate(city, startdate, enddate);
 		if(subscribelogs != null){
 			rd.setResult(ResultData.SUCCESS);
 			rd.setData(subscribelogs);

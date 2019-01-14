@@ -15,6 +15,7 @@ public class Application {
     public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(Application.class, args);
         System.out.printf("System Started!");
+    	
     }
 
 }

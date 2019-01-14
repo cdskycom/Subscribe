@@ -28,5 +28,18 @@ public class CountyService_impl implements CountyService{
 		}
 		return rd;
 	}
-
+	
+	@Override
+	public ResultData findByCityName(String cityname) {
+		ResultData rd = new ResultData();
+		List<County> counties = countyMapper.findByCityName(cityname);
+		if (counties != null){
+			rd.setResult(ResultData.SUCCESS);
+			rd.setData(counties);
+		}else{
+			rd.setResult(ResultData.OTHER);
+			rd.setMessage(ResultData.OTHERDMESSAGE);
+		}
+		return rd;
+	}
 }

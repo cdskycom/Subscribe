@@ -6,6 +6,8 @@
     <select id="findByLeaderid" resultType="com.ystmobile.subscribe.model.County">
     	select * from county where leader_id=#{leader_id}
     </select>
- 
+ 	<select id="findByCityName" resultType="com.ystmobile.subscribe.model.County">
+    	select * from county where leader_id= (select id from county where type=#{cityname})
+    </select>
     
 </mapper>
